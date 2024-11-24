@@ -73,7 +73,7 @@ async function cerateRepoTree() {
 
 
 cerateRepoTree().then(res=>{
-    var base = 'http://127.0.0.1:5500/Website/index.html'
+    var base = 'https://alt-f4-eng.github.io/Documentazione/'
     var main = document.querySelector('main');
     var navbar = document.querySelector('#milestones-links ul');
     
