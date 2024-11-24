@@ -1,0 +1,226 @@
+:root {
+    --blueBg: rgb(69, 75, 107);
+    --blueBtn: rgb(43, 132, 198);
+    --redBtn: rgb(236, 97, 104);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+a {
+    color: var(--blueBtn);
+}
+
+body, html {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+ #header{
+    background-color: var(--blueBg);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.2);
+    display: flex;
+}
+
+#nav-bar{
+    margin-left: auto;
+    align-self: center;
+}
+
+#logo{
+    background-image: url("assets/logo.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    display: inline-block;
+    background-size: 11rem;
+    height: 4rem;
+    width: 4rem;
+}
+
+#milestones-links {
+    display: inline-block;
+    margin-left: auto;
+    align-self: center;
+    padding: 0 2rem;
+    font-weight: bold;
+}
+
+#footer{
+    background-color: var(--blueBg);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+dl dd, dl dt {
+    display: inline-block;
+    padding: 0.2rem;
+}
+
+ul, ol {
+    list-style: none;
+    text-indent: 0.5rem;
+}
+
+main {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.milestone {
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-top: solid var(--redBtn);
+}
+
+.milestone h2 {
+    border-bottom: solid gainsboro;
+}
+
+ol .dir{
+    font-weight: bolder;
+    font-size: large;
+    margin-top: 0.5rem;
+}
+
+ol ol .dir {
+    font-weight: normal;
+    font-size: normal;
+}
+
+.milestone li.dir {
+    padding-top: 1rem;
+}
+.milestone h2+ol {
+    padding-top: 1rem;
+}
+
+.milestone h2 {
+    padding: 0.5rem 0;
+}
+
+.hide{
+    display: none !important;
+}
+
+#loading {
+    font-size: larger;
+    font-weight: bolder;
+    margin:auto;
+}
+
+/*
+    Desktop, laptop and tablet specific CSS
+*/
+@media (width >= 50em) {
+    .milestone {
+        width: 60%;
+    }
+
+    #open_nav, #close_nav {
+        display: none;
+    }
+
+    #milestones-links a {
+        padding-left: 2rem;
+    }
+
+    #milestones-links ul li {
+        display: inline;
+    }
+    
+}
+
+@media ((width >= 40em) and (width < 50em)) {
+    .milestone {
+        width: 80%;
+      }
+    
+    #open_nav, #close_nav {
+        display: none;
+    }
+
+    #milestones-links a {
+        padding-right: 2rem;
+    }
+
+    #milestones-links ul li {
+        display: inline;
+    }
+}
+
+/*
+   Smartphone specific CSS
+*/
+@media (width < 40em) {
+    .milestone {
+        width: 99%;
+        padding: 1rem 0.6rem;
+    }
+    
+    #milestones-links {
+        margin-left: 0;
+        position: fixed;
+        inset: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--blueBg);
+        translate: 100vw 0;
+        transition: translate 0.5s ease-in-out;
+    }
+
+    #open_nav[aria-expanded="true"] + div#milestones-links  {
+        translate: 0;
+    }
+
+    #open_nav {
+        margin-left: auto;
+        border: none;
+        background: none;
+        align-self: center;
+    }
+
+    #close_nav {
+        background: none;
+        border: none;
+        margin-left: auto;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    #close_nav img, #open_nav img{
+        width: 2.5rem;
+        height: 3rem;
+    }
+
+
+    #milestones-links a {
+        display: block;
+        font-size:xx-large;
+        margin: 1.5rem;
+    }
+
+    .milestone ol {
+        margin: 0.3rem;
+    }
+}
