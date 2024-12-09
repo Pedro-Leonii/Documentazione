@@ -1,13 +1,14 @@
 :root {
-    --blueBg: rgb(69, 75, 107);
-    --blueBtn: rgb(43, 132, 198);
-    --redBtn: rgb(236, 97, 104);
+    --blueBg: #454b6b;
+    --blueBtn: #2b84c6;
+    --redBtn: #ec6168;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    color: var(--blueBg);
 }
 
 a {
@@ -35,7 +36,7 @@ body, html {
 }
 
 #logo{
-    background-image: url("assets/logo.jpeg");
+    background-image: url("Assets/logo.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     text-indent: -9999px;
@@ -55,12 +56,15 @@ body, html {
 
 #footer{
     background-color: var(--blueBg);
-    color: white;
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem;
     margin-top: auto;
     text-align: center;
+}
+
+#footer p {
+    color: white;    
 }
 
 dl dd, dl dt {
@@ -79,20 +83,26 @@ main {
     width: 100%;
     flex-flow: column wrap;
     align-items: center;
+    background-color: #e4e6f171;
+}
+
+main * {
+    background-color: white;
 }
 
 .milestone {
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
     padding: 2rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    border-top: solid var(--redBtn);
+    border-top: 5px solid var(--redBtn);
+    box-shadow: 0px 0px 40px -20px ;
 }
 
-.milestone h2 {
+.milestone h2, #team-cards h2 {
     border-bottom: solid gainsboro;
+    padding: 0.5rem 0;
 }
 
 ol .dir{
@@ -113,9 +123,6 @@ ol ol .dir {
     padding-top: 1rem;
 }
 
-.milestone h2 {
-    padding: 0.5rem 0;
-}
 
 .hide{
     display: none !important;
@@ -127,12 +134,93 @@ ol ol .dir {
     margin:auto;
 }
 
+#team-cards {
+    order: 99;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 6rem ;
+}
+
+#team-cards h2 {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+}
+
+#team-cards img {
+    vertical-align: bottom;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 3rem 0rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.card h3 {
+    padding: 1rem;
+}
+
+.card a {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.card {
+    text-align: center;
+    padding: 1rem;
+    box-shadow: var(--blueBg) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+.mail span, .github span {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    text-indent: -9999px;
+}
+
+.mail span {
+    background-image: url(Assets/mail.svg);
+}
+
+.github span {
+    background-image: url(Assets/github.svg);
+}
+
+#container li {
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+
+
 /*
-    Desktop, laptop and tablet specific CSS
+    Desktop specific CSS
 */
-@media (width >= 50em) {
+@media (width >= 70em) {
     .milestone {
         width: 60%;
+    }
+
+    #container {
+        width: 100%;
+        padding: 0 10%;
+        box-sizing: border-box;
+    }
+
+    #container li {
+        width: 30%;
     }
 
     #open_nav, #close_nav {
@@ -149,11 +237,25 @@ ol ol .dir {
     
 }
 
-@media ((width >= 40em) and (width < 50em)) {
+
+/*
+    Laptop and tablet specific CSS
+*/
+@media ((width >= 40em) and (width < 70em)) {
     .milestone {
         width: 80%;
-      }
+    }
     
+    #container {
+        width: 100%;
+        padding: 0 10%;
+        box-sizing: border-box;
+    }
+
+    #container li {
+        width: 50%;
+    }
+
     #open_nav, #close_nav {
         display: none;
     }
@@ -175,6 +277,18 @@ ol ol .dir {
         width: 99%;
         padding: 1rem 0.6rem;
     }
+
+
+    #container li {
+        width: 100%;
+        padding: 0;
+    }
+
+    .card {
+        width: 80%;
+        margin: auto;
+    }
+    
     
     #milestones-links {
         margin-left: 0;

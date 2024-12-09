@@ -73,7 +73,7 @@ async function cerateRepoTree() {
 
 
 cerateRepoTree().then(res=>{
-    var base = 'https://alt-f4-eng.github.io/Documentazione/'
+    var base = ''
     var main = document.querySelector('main');
     var navbar = document.querySelector('#milestones-links ul');
     
@@ -81,7 +81,7 @@ cerateRepoTree().then(res=>{
     res.forEach(e => {
         main.appendChild(e);
         var link = document.createElement('a');
-        link.setAttribute('href', `${base}#${e.id}`);
+        link.setAttribute('href', `#${e.id}`);
         link.setAttribute('onClick', 'closeMobileMenu();')
         link.textContent = e.id.replace(/([A-Z])/g, " $1");
         navbar.appendChild(document.createElement('li').appendChild(link));
@@ -92,6 +92,6 @@ cerateRepoTree().then(res=>{
         document.querySelectorAll('.hide').forEach(e=>{
             e.classList.remove('hide');
         })
-    }, 500);
+    }, 100);
     
 })
