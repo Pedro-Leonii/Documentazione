@@ -1,0 +1,340 @@
+:root {
+    --blueBg: #454b6b;
+    --blueBtn: #2b84c6;
+    --redBtn: #ec6168;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: var(--blueBg);
+}
+
+a {
+    color: var(--blueBtn);
+}
+
+body, html {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+ #header{
+    background-color: var(--blueBg);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.2);
+    display: flex;
+}
+
+#nav-bar{
+    margin-left: auto;
+    align-self: center;
+}
+
+#logo{
+    background-image: url("Assets/logo.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    display: inline-block;
+    background-size: 11rem;
+    height: 4rem;
+    width: 4rem;
+}
+
+#milestones-links {
+    display: inline-block;
+    margin-left: auto;
+    align-self: center;
+    padding: 0 2rem;
+    font-weight: bold;
+}
+
+#footer{
+    background-color: var(--blueBg);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+#footer p {
+    color: white;    
+}
+
+dl dd, dl dt {
+    display: inline-block;
+    padding: 0.2rem;
+}
+
+ul, ol {
+    list-style: none;
+    text-indent: 0.5rem;
+}
+
+main {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #e4e6f171;
+}
+
+main * {
+    background-color: white;
+}
+
+.milestone {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-top: 5px solid var(--redBtn);
+    box-shadow: 0px 0px 40px -20px ;
+}
+
+.milestone h2, #team-cards h2 {
+    border-bottom: solid gainsboro;
+    padding: 0.5rem 0;
+}
+
+ol .dir{
+    font-weight: bolder;
+    font-size: large;
+    margin-top: 0.5rem;
+}
+
+ol ol .dir {
+    font-weight: normal;
+    font-size: normal;
+}
+
+.milestone li.dir {
+    padding-top: 1rem;
+}
+.milestone h2+ol {
+    padding-top: 1rem;
+}
+
+
+.hide{
+    display: none !important;
+}
+
+#loading {
+    font-size: larger;
+    font-weight: bolder;
+    margin:auto;
+}
+
+#team-cards {
+    order: 99;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 6rem ;
+}
+
+#team-cards h2 {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+}
+
+#team-cards img {
+    vertical-align: bottom;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 3rem 0rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.card h3 {
+    padding: 1rem;
+}
+
+.card a {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.card {
+    text-align: center;
+    padding: 1rem;
+    box-shadow: var(--blueBg) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+.mail span, .github span {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    text-indent: -9999px;
+}
+
+.mail span {
+    background-image: url(Assets/mail.svg);
+}
+
+.github span {
+    background-image: url(Assets/github.svg);
+}
+
+#container li {
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+
+
+/*
+    Desktop specific CSS
+*/
+@media (width >= 70em) {
+    .milestone {
+        width: 60%;
+    }
+
+    #container {
+        width: 100%;
+        padding: 0 10%;
+        box-sizing: border-box;
+    }
+
+    #container li {
+        width: 30%;
+    }
+
+    #open_nav, #close_nav {
+        display: none;
+    }
+
+    #milestones-links a {
+        padding-left: 2rem;
+    }
+
+    #milestones-links ul li {
+        display: inline;
+    }
+    
+}
+
+
+/*
+    Laptop and tablet specific CSS
+*/
+@media ((width >= 40em) and (width < 70em)) {
+    .milestone {
+        width: 80%;
+    }
+    
+    #container {
+        width: 100%;
+        padding: 0 10%;
+        box-sizing: border-box;
+    }
+
+    #container li {
+        width: 50%;
+    }
+
+    #open_nav, #close_nav {
+        display: none;
+    }
+
+    #milestones-links a {
+        padding-right: 2rem;
+    }
+
+    #milestones-links ul li {
+        display: inline;
+    }
+}
+
+/*
+   Smartphone specific CSS
+*/
+@media (width < 40em) {
+    .milestone {
+        width: 99%;
+        padding: 1rem 0.6rem;
+    }
+
+
+    #container li {
+        width: 100%;
+        padding: 0;
+    }
+
+    .card {
+        width: 80%;
+        margin: auto;
+    }
+    
+    
+    #milestones-links {
+        margin-left: 0;
+        position: fixed;
+        inset: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--blueBg);
+        translate: 100vw 0;
+        transition: translate 0.5s ease-in-out;
+    }
+
+    #open_nav[aria-expanded="true"] + div#milestones-links  {
+        translate: 0;
+    }
+
+    #open_nav {
+        margin-left: auto;
+        border: none;
+        background: none;
+        align-self: center;
+    }
+
+    #close_nav {
+        background: none;
+        border: none;
+        margin-left: auto;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    #close_nav img, #open_nav img{
+        width: 2.5rem;
+        height: 3rem;
+    }
+
+
+    #milestones-links a {
+        display: block;
+        font-size:xx-large;
+        margin: 1.5rem;
+    }
+
+    .milestone ol {
+        margin: 0.3rem;
+    }
+}
