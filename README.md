@@ -5,7 +5,7 @@
 # Documentazione
 Questo repository contiene i documeti compilati in PDF di progetto del corso di Ingegneria del Software 2024-2025.
 
-[Visita il nostro sito](alt-f4-eng.github.io/Documentazione/)
+[Visita il nostro sito]([alt-f4-eng.github.io/Documentazione/](https://alt-f4-eng.github.io/Documentazione/))
 
 # Componenti del guppo
 * Enrico Bianchi 
