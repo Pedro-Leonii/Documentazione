@@ -1,5 +1,6 @@
 const owner = 'ALT-F4-eng';
 const repo = 'Documentazione';
+const dirsToIngore = ['Assets', 'Js', 'Style']
 
 async function getFromRepo(owner, repo, path='') {
     try {
@@ -22,7 +23,7 @@ async function createSubTrees(path='') {
     var res = document.createElement('ol')
 
     for (const e of content) {
-        if(e.type === 'dir') {
+        if(e.type === 'dir' && !(e.name in dirsToIngore)) {
             var li = document.createElement('li');
             li.textContent = e.name.replace(/([A-Z])/g, " $1"); 
             li.setAttribute('class', 'dir');
