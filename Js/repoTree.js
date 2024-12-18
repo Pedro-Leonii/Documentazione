@@ -23,7 +23,7 @@ async function createSubTrees(path='') {
     var res = document.createElement('ol')
 
     for (const e of content) {
-        if(e.type === 'dir' && !(e.name in dirsToIngore)) {
+        if(e.type === 'dir') {
             var li = document.createElement('li');
             li.textContent = e.name.replace(/([A-Z])/g, " $1"); 
             li.setAttribute('class', 'dir');
@@ -54,7 +54,7 @@ async function cerateRepoTree() {
     var milestonesList = [];
 
     for(const m of milestones){
-        if(m.type === 'dir') {
+        if(m.type === 'dir' && !(dirsToIgnore.indexOf(m.name) > -1) ) {
             var sec = document.createElement('section');
             var h2 = document.createElement('h2');
 
