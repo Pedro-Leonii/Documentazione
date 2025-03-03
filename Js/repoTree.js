@@ -1,20 +1,18 @@
 const owner = 'ALT-F4-eng';
 const repo = 'Documentazione';
-const dirsToIngore = ['Assets', 'Js', 'Style']
+const dirsToIgnore = ['Assets', 'Js', 'Style']
 
 async function getFromRepo(owner, repo, path='') {
-    try {
-        const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
-        if(!resp.ok) {
-            throw new Error(`Error: ${resp.status} ${resp.statusText}`);
-        }
 
-        const respJson = await resp.json();
-        return respJson;
+    const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
+    if(!resp.ok) {
+        err = await resp.json().catch( () => new Error( "errore sconosciuto" ));
+        return Promise.reject({'json': err, 'code': resp.status})
     }
-    catch(error) {
-        console.error(error.message);
-    }
+
+    const respJson = await resp.json();
+    return respJson;
+   
 }
 
 async function createSubTrees(path='') {
@@ -50,6 +48,7 @@ async function createSubTrees(path='') {
 }
 
 async function cerateRepoTree() {
+
     const milestones = await getFromRepo(owner, repo);
     var milestonesList = [];
 
@@ -70,6 +69,8 @@ async function cerateRepoTree() {
     }
 
     return milestonesList;
+  
+    
 }
 
 
@@ -95,4 +96,14 @@ cerateRepoTree().then(res=>{
         })
     }, 100);
     
-})
+}).catch((error => {
+    errTitle = document.getElementById('error-title')
+    errDescription = document.getElementById('error-description')
+
+    document.getElementById('loading-txt').style.display = 'none'
+    document.getElementById('loading-img').style.display = 'none'
+
+    errTitle.innerHTML = `Errore ${error.code}`
+    errDescription.innerHTML = error.json.message
+    errTitle.style.display = errDescription.style.display ='block'
+}))

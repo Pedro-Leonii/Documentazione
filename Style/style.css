@@ -203,6 +203,12 @@ ol ol .dir {
     padding: 1rem;
 }
 
+#error-title, #error-description{
+    display: none;
+    padding: 1rem;
+    text-align: center;
+}
+
 
 
 /*
