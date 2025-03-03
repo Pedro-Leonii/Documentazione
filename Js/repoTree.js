@@ -104,6 +104,6 @@ cerateRepoTree().then(res=>{
     document.getElementById('loading-img').style.display = 'none'
 
     errTitle.innerHTML = `Errore ${error.code}`
-    errDescription.innerHTML = error.json.message
+    errDescription.innerHTML = error.json.message.replace(/ *\([^)]*\) */g, "")
     errTitle.style.display = errDescription.style.display ='block'
 }))
